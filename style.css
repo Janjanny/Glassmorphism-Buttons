@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200;400;600;700;800&display=swap');
+
+*{
+    font-family: 'Dosis', sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --bgcolor1: #0F3443;
+    --bgcolor2: #155252;
+    --bgcolor3: #1B7061;
+
+
+    --color1: #00D7FF;
+}
+
+body{
+    background-image: linear-gradient(to top, var(--bgcolor1), var(--bgcolor2),var(--bgcolor3));
+    width: 100%;
+    height: 100vh;
+}
+
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
+}
+
+.container .button {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container .button a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, .05);
+    box-shadow: 0 15px 15px rgba(0, 0, 0, 0.3);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+	border-top: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    letter-spacing: 1px;
+    overflow: hidden;
+    color: #fff;
+    font-weight: 800;
+    font-size: 1.2em;
+    backdrop-filter: blur(15px);
+    text-decoration: none;
+    z-index: 1;
+
+    transition: all .5s;
+}
+
+/*text stretch*/
+.container .button:hover a {
+    letter-spacing: 3px;
+}
+
+
+/*glass effect*/
+.container .button a::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background-image: linear-gradient(to left, rgba(255,255,255, 0.10), transparent);
+    transform: skew(-60deg) translate(0);
+    transition: all .5s;
+}
+
+/*shining glass effect*/
+.container .button a:hover::before {
+    transform: skew(-60deg) translate(200px);
+}
+
+/*glow object*/
+.container .button-1::before{
+    content: "";
+    position: absolute;
+    width: 30px;
+    height: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -5px;
+    border-radius: 10px;
+
+    transition: all 0.5s;
+}
+
+.container .button-1::after{
+    content: "";
+    position: absolute;
+    width: 30px;
+    height: 10px;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 10px;
+
+    transition: all 0.5s;
+}
+
+.container .button-1::after,
+.container .button-1::before{
+    background-color: var(--color1);
+    box-shadow: 0 0 5px var(--color1), 0 0 15px var(--color1), 0 0 30px var(--color1), 0 0 50px var(--color1);
+    
+}
+
+/*light it up*/
+.container .button-1:hover::before {
+    bottom: 0;
+    height: 50%;
+    width: 80%;
+    border-radius: 30px;
+}
+
+.container .button-1:hover::after {
+    top: 0;
+    height: 50%;
+    width: 80%;
+    border-radius: 30px;
+}
